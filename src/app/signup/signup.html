@@ -1,0 +1,29 @@
+<div class="signup-container">
+  <div class="signup-card">
+    <h2>Create Account</h2>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+      <label>Full Name</label>
+      <input type="text" formControlName="fullName" placeholder="Enter full name" />
+
+      <label>Email</label>
+      <input type="email" formControlName="email" placeholder="Enter email" />
+
+      <label>Password</label>
+      <input type="password" formControlName="password" placeholder="Enter password" />
+
+      <label>Confirm Password</label>
+      <input type="password" formControlName="confirmPassword" placeholder="Re-enter password" />
+
+      <button type="submit" [disabled]="signupForm.invalid">
+        Sign Up
+      </button>
+    </form>
+
+    <p class="login-link">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </div>
+</div>

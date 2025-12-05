@@ -1,0 +1,22 @@
+.section {
+    display: flex;
+    align-items: center;
+}
+
+.button-row {
+    padding: 10px 200px;
+    border-radius: 200px;
+    box-shadow: 0 2px 6px rgba(2, 234, 122, 0.498);
+    align-items: center;
+}
+
+.button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}

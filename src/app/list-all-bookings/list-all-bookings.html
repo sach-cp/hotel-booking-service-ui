@@ -1,0 +1,193 @@
+<div class="booking-list-container">
+  <form [formGroup]="bookingListForm" (ngSubmit)="onSearch()" class="booking-list">
+
+    <mat-form-field appearance="outline" class="booking-list-field">
+      <mat-icon matPrefix>book</mat-icon>
+      <mat-label>Booking Id</mat-label>
+      <input matInput placeholder="Booking Id" formControlName="bookingId" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="booking-list-field">
+      <mat-icon matPrefix>calendar_today</mat-icon>
+      <mat-label>Booking Date</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="bookingDate">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <!-- FIXED BUTTON -->
+    <button mat-raised-button color="primary" class="search-btn" type="submit">
+      <mat-icon>search</mat-icon>
+      Search
+    </button>
+
+  </form>
+
+</div>
+
+<!-- BOOKING RESULTS -->
+@if (booking) {
+<h2 class="section-title">Booking Details</h2>
+
+<div class="booking-grid">
+  <div class="booking-card">
+
+    <!-- BOOKING MAIN INFO -->
+    <div class="booking-content">
+      <h3>Hotel: {{ booking.hotelName }}</h3>
+
+      <p class="detail">
+        <mat-icon class="icon">confirmation_number</mat-icon>
+        Booking ID: {{ booking.bookingId }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">calendar_today</mat-icon>
+        Check-In: {{ booking.checkInDate }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">calendar_today</mat-icon>
+        Check-Out: {{ booking.checkOutDate }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">event</mat-icon>
+        Booking Date: {{ booking.bookingDate }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">group</mat-icon>
+        Number of Persons: {{ booking.numberOfPersons }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">bed</mat-icon>
+        Room Type: {{ booking.roomType }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">meeting_room</mat-icon>
+        Room Number: {{ booking.roomNumber }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">currency_rupee</mat-icon>
+        Price: {{ booking.price }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">info</mat-icon>
+        Status: {{ booking.status }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">work</mat-icon>
+        Purpose of Visit: {{ booking.purposeOfVisit }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">account_balance_wallet</mat-icon>
+        Advance Amount: {{ booking.advanceAmount }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">payment</mat-icon>
+        Payment Status: {{ booking.paymentStatus }}
+      </p>
+    </div>
+
+    <hr />
+
+    <!-- CUSTOMER DETAILS -->
+    <div class="customer-content">
+      <h3>Customer Details</h3>
+
+      <p class="detail">
+        <mat-icon class="icon">person</mat-icon>
+        Name: {{ booking.customerResponse?.firstName }} {{ booking.customerResponse?.lastName }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">phone</mat-icon>
+        Phone: {{ booking.customerResponse?.phoneNumber }}
+      </p>
+    </div>
+
+    <hr />
+
+    <!-- ADDRESS DETAILS -->
+    <div class="booking-content">
+      <h3>Customer Address</h3>
+
+      <p class="detail">
+        <mat-icon class="icon">location_city</mat-icon>
+        City: {{ booking.customerResponse?.addressResponse?.city }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">map</mat-icon>
+        State: {{ booking.customerResponse?.addressResponse?.state }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">public</mat-icon>
+        Country: {{ booking.customerResponse?.addressResponse?.country }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">pin_drop</mat-icon>
+        Pincode: {{ booking.customerResponse?.addressResponse?.pinCode }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">home</mat-icon>
+        Address: {{ booking.customerResponse?.addressResponse?.addressDetails }}
+      </p>
+    </div>
+
+  </div>
+</div>
+}
+
+<!-- Booking Summary Details -->
+@if (bookings && bookings.length) {
+<h2 class="section-title">Booking Summary Details</h2>
+
+<div class="bookings-grid">
+  @for (book of bookings; track book.bookingId) {
+  <div class="bookings-card">
+
+    <!-- Booking list Details -->
+    <div class="bookings-content">
+      <h3>Hotel: {{ book.hotelName }}</h3>
+
+      <p class="detail">
+        <mat-icon class="icon">confirmation_number</mat-icon>
+        Booking ID: {{ book.bookingId }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">person</mat-icon>
+        Name: {{ book.firstName }} {{ book.lastName }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">phone</mat-icon>
+        Phone: {{ book.phoneNumber }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">calendar_today</mat-icon>
+        Check-In: {{ book.checkInDate }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">calendar_today</mat-icon>
+        Check-Out: {{ book.checkOutDate }}
+      </p>
+    </div>
+  </div>
+  }
+</div>
+}

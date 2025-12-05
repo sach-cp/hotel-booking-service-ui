@@ -1,0 +1,223 @@
+/* Availability box Styles */
+.availability-box {
+    border: 2px solid #f4b400;
+    /* yellow border */
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.availability-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.availability-section:not(:last-child) {
+    border-right: 2px solid #f4b400;
+}
+
+mat-icon {
+    color: #555;
+}
+
+.dropdown-icon {
+    margin-left: auto;
+}
+
+
+.hotel-name {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/*Room Display Styles */
+.section-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #222;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 24px;
+    padding: 10px 0;
+    justify-content: flex-start;
+}
+
+.room-card {
+    background: #fff;
+    border-radius: 14px;
+    width: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(9, 164, 136, 0.849);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.room-image img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.room-content {
+    padding: 16px 18px;
+}
+
+.room-content h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.detail {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #555;
+}
+
+.icon {
+    font-size: 20px;
+    margin-right: 6px;
+    color: #007bff;
+}
+
+.room-price-details {
+    display: flex;
+    gap: 20px;
+    margin: 10px 0px;
+}
+
+/* Price Card Styles */
+.price-card {
+    background: #fff;
+    border-radius: 14px;
+    width: 50%;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(5, 187, 145, 0.498);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+}
+
+.price-content {
+    padding: 16px 10px;
+}
+
+.price-content h3 {
+    margin: 0 0 5px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.price-detail {
+    display: flex;
+    align-items: center;
+    /* Align icon + price on same line */
+    gap: 8px;
+    /* Small space between them */
+    font-size: 32px;
+    /* Big text */
+    font-weight: 400;
+    margin-top: 10px;
+    color: #333;
+}
+
+.price-detail mat-icon {
+    font-size: 32px;
+    /* Make rupee icon match text size */
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(9, 164, 136, 0.849);
+}
+
+
+/* Wrapper for room + price cards */
+.room-price-wrapper {
+    display: block;
+}
+
+/* User Details Form Styles */
+.user-form {
+    border-radius: 24px;
+    box-shadow: 0 4px 16px rgba(9, 164, 136, 0.849);
+    width: 97%;
+}
+
+.form-field-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start !important;
+    grid-template-columns: 1fr 1fr;
+    /* two columns */
+    column-gap: 16px;
+    /* reduce horizontal gap */
+    row-gap: 8px;
+    /* reduce vertical gap */
+}
+
+.form-field {
+    flex: 1 1 200px;
+    min-width: 100px;
+    border-radius: 16px;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+::ng-deep .mat-mdc-form-field-bottom-align {
+    display: none !important;
+    height: 0 !important;
+    padding: 0 !important;
+}
+
+/* submit button class = search-btn*/
+.submit-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-btn {
+    height: 56px;
+    border-radius: 16px;
+    padding: 0 24px;
+    font-weight: 600;
+    color: white !important;
+    background: linear-gradient(135deg, #007bff, #00bcd4) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    width: 20%
+}
+
+.search-btn:hover {
+    background: linear-gradient(135deg, #00bcd4, #007bff) !important;
+    transform: translateY(-2px);
+}

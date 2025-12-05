@@ -1,0 +1,22 @@
+.hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.hotel-card {
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(3, 81, 99, 0.842);
+}
+
+.hotel-card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.hotel-card p {
+  margin: 8px 0;
+  color: #666;
+}

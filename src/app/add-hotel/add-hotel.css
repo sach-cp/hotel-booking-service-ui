@@ -1,0 +1,34 @@
+.form-wrapper {
+  max-width: 650px;
+  margin: 0 auto;     /* centers everything inside */
+  text-align: center; /* centers your h3 */
+}
+
+.hotel-form {
+    display: grid;
+    text-align: left;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 equal columns */
+    gap: 6px;
+    /* spacing between fields */
+    max-width: 650px;
+    width: 100%;
+    margin: 1 auto;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 6px 18px rgba(136, 125, 3, 0.582);
+    border-radius: 6px;
+}
+
+.form-field {
+    width: 100%;
+}
+
+/* Make Submit button */
+.submit-btn {
+    grid-column: span 2;
+    /* keep full row span */
+    justify-self: center;
+    /* center horizontally */
+}
+

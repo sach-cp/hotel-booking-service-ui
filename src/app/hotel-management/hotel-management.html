@@ -1,0 +1,26 @@
+<section>
+    <div class="button-row">
+        <div class="flex-container">
+
+            <button mat-fab extended [routerLink]="'add'" routerLinkActive="active-btn">
+                <mat-icon>add</mat-icon> Add Hotel
+            </button>
+
+            <button mat-fab extended [routerLink]="'list'" routerLinkActive="active-btn">
+                <mat-icon>list</mat-icon> List Hotels
+            </button>
+
+            <button mat-fab extended [routerLink]="'update'" routerLinkActive="active-btn">
+                <mat-icon>edit</mat-icon> Update Hotel
+            </button>
+
+            <button mat-fab extended [routerLink]="'remove'" routerLinkActive="active-btn">
+                <mat-icon>delete</mat-icon> Remove Hotel
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<!-- Page loads here -->
+<router-outlet></router-outlet>

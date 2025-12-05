@@ -1,0 +1,35 @@
+<header class="navbar">
+    <div class="nav-left">
+        <span class="logo">Hotel Booking Service</span>
+
+        <div class="nav-links">
+            <button class="nav-item" routerLink="/home" routerLinkActive="active">
+                <mat-icon>home</mat-icon>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" routerLink="/hotel-management" routerLinkActive="active">
+                <mat-icon>hotel</mat-icon>
+                <span>Hotels</span>
+            </button>
+            <button class="nav-item" routerLink="/room-management" routerLinkActive="active">
+                <mat-icon>bed</mat-icon>
+                <span>Rooms</span>
+            </button>
+            <button class="nav-item" routerLink="/new-booking" routerLinkActive="active">
+                <mat-icon>bed</mat-icon>
+                <span>New Booking</span>
+            </button>
+            <button class="nav-item" routerLink="/bookings-list" routerLinkActive="active">
+                <mat-icon>manage_search</mat-icon>
+                <span>Bookings</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="nav-container">
+        <button class="nav-item logout-btn" (click)="logout()" >
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+        </button>
+    </div>
+</header>

@@ -1,0 +1,72 @@
+<div class="booking-container">
+  <form [formGroup]="bookingForm" (ngSubmit)="onSearch()" class="booking-form" >
+
+    <mat-form-field appearance="outline" class="booking-field">
+      <mat-icon matPrefix>hotel</mat-icon>
+      <mat-label>Hotel</mat-label>
+      <mat-select formControlName="destination" placeholder="Select hotel">
+        @for (hotel of hotels; track hotel) {
+        <mat-option [value]="hotel">{{ hotel }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="booking-field">
+      <mat-icon matPrefix>calendar_today</mat-icon>
+      <mat-label>Check-in</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="checkin" />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="booking-field">
+      <mat-icon matPrefix>calendar_today</mat-icon>
+      <mat-label>Check-out</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="checkout" />
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="booking-field">
+      <mat-icon matPrefix>group</mat-icon>
+      <mat-label>Travellers</mat-label>
+      <input matInput type="number" min="1" placeholder="2 Adults" formControlName="travellers" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="search-btn" type="submit"
+      [disabled]="bookingForm.invalid">
+      <mat-icon>search</mat-icon>
+      Search
+    </button>
+
+  </form>
+</div>
+
+<!-- ROOM RESULTS -->
+@if (roomList && roomList.length) {
+<h2 class="section-title">Available Rooms</h2>
+
+<div class="room-grid">
+  @for (room of roomList; track room.roomNumber) {
+  <div class="room-card">
+
+    <!-- Room Details -->
+    <div class="room-content">
+      <h3>Room no. {{ room.roomNumber }}</h3>
+
+      <p class="detail">
+        <mat-icon class="icon">king_bed</mat-icon>
+        {{ room.roomType }}
+      </p>
+
+      <p class="detail">
+        <mat-icon class="icon">currency_rupee</mat-icon>
+        {{ room.price }}
+      </p>
+
+      <button mat-raised-button class="book-btn" type="button" (click)="bookNow(room)"> Book Now </button>
+    </div>
+  </div>
+  }
+</div>
+}

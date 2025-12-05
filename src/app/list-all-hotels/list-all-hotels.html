@@ -1,0 +1,25 @@
+<div class="hotel-list">
+    <h2 style="text-align: center;">Hotels</h2>
+
+    @if (hotelList && hotelList.length) {
+    <div class="hotel-grid">
+        @for (hotel of hotelList; track hotel.hotelName) {
+        <div class="hotel-card">
+            <h3>{{ hotel.hotelName }}</h3>
+            <p><strong>hotel Id: </strong> {{ hotel.hotelId }}</p>
+
+            <p>
+                <strong>Address:</strong>
+                {{ hotel.address.addressDetails }},
+                {{ hotel.address.city }},
+                {{ hotel.address.state }},
+                {{ hotel.address.country }} - {{ hotel.address.pinCode }}
+            </p>
+
+            <p><strong>Phone:</strong> {{ hotel.phoneNumber }}</p>
+            <p><strong>Email:</strong> {{ hotel.emailId }}</p>
+        </div>
+        }
+    </div>
+    }
+</div>

@@ -1,0 +1,92 @@
+<div class="form-wrapper">
+    <h3 style="text-align:center;">Please fill the form and submit to add new hotel</h3>
+
+    <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()" class="hotel-form">
+        <!-- Hotel Name -->
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Hotel Name</mat-label>
+            <input matInput formControlName="hotelName" placeholder="Enter hotel name" />
+            @if (hotelForm.get('hotelName')?.hasError('required')) {
+            <mat-error>Hotel name is required</mat-error>
+            }
+            @if (hotelForm.get('hotelName')?.hasError('minlength')) {
+            <mat-error>Minimum 2 characters required</mat-error>
+            }
+        </mat-form-field>
+
+        <!-- Address Group -->
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Address Details</mat-label>
+            <input matInput formControlName="addressDetails" placeholder="Enter address details" />
+            @if (hotelForm.get('addressDetails')?.hasError('required')) {
+            <mat-error>Address details are required</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" placeholder="Enter city" />
+            @if (hotelForm.get('city')?.hasError('required')) {
+            <mat-error>City is required</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" placeholder="Enter state" />
+            @if (hotelForm.get('state')?.hasError('required')) {
+            <mat-error>State is required</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country" placeholder="Enter country" />
+            @if (hotelForm.get('country')?.hasError('required')) {
+            <mat-error>Country is required</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Pin Code</mat-label>
+            <input matInput formControlName="pinCode" placeholder="Enter pin code" />
+            @if (hotelForm.get('pinCode')?.hasError('required')) {
+            <mat-error>Pin Code is required</mat-error>
+            }
+            @if (hotelForm.get('pinCode')?.hasError('pattern')) {
+            <mat-error>Enter a valid 6-digit pin code</mat-error>
+            }
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phoneNumber" placeholder="Enter phone number" />
+            @if (hotelForm.get('phoneNumber')?.hasError('required')) {
+            <mat-error>Phone number is required</mat-error>
+            }
+            @if (hotelForm.get('phoneNumber')?.hasError('pattern')) {
+            <mat-error>Enter a valid 10-digit number</mat-error>
+            }
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Email ID</mat-label>
+            <input matInput formControlName="emailId" placeholder="Enter email" />
+            @if (hotelForm.get('emailId')?.hasError('required')) {
+            <mat-error>Email ID is required</mat-error>
+            }
+            @if (hotelForm.get('emailId')?.hasError('email')) {
+            <mat-error>Enter a valid email address</mat-error>
+            }
+        </mat-form-field>
+
+        <!-- Submit Button -->
+        <button mat-raised-button color="primary" class="submit-btn" type="submit"
+            [disabled]="hotelForm.invalid || isSubmitting">
+            {{ isSubmitting ? 'Submitting...' : 'Submit' }}
+        </button>
+
+    </form>
+</div>

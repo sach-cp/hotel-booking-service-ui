@@ -1,0 +1,42 @@
+<div class="room-heading">
+	<h2>Please fill the form and submit to add new room</h2>
+</div>
+
+<div class="add-room">
+  <form [formGroup]="roomForm" (ngSubmit)="onSubmit()" class="room-form">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Hotel Id</mat-label>
+      <input matInput formControlName="hotelId" placeholder="Enter Hotel Id" />
+      @if (roomForm.get('hotelId')?.hasError('required')) {
+        <mat-error>Hotel Id is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Room type</mat-label>
+      <input matInput formControlName="roomType" placeholder="Enter room type" />
+      @if (roomForm.get('roomType')?.hasError('required')) {
+        <mat-error>Room type is required</mat-error>
+      }
+      @if (roomForm.get('roomType')?.hasError('minlength')) {
+        <mat-error>Minimum 2 characters required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Room number</mat-label>
+      <input matInput formControlName="roomNumber" placeholder="Enter room number" />
+      @if (roomForm.get('roomNumber')?.hasError('required')) {
+        <mat-error>Room number is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" placeholder="Enter price" />
+      @if (roomForm.get('price')?.hasError('required')) {
+        <mat-error>Room price is required</mat-error>
+      }
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!roomForm.valid || isSubmitting">
+      {{ isSubmitting ? 'Submitting...' : 'Submit' }}
+    </button>
+  </form>
+</div>

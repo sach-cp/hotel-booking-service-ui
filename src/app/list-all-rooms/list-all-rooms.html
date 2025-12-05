@@ -1,0 +1,48 @@
+<div class="room-list-container">
+    <h2 style="text-align: center;">Search Rooms</h2>
+    <!-- SEARCH FORM -->
+    <form [formGroup]="roomForm" (ngSubmit)="getRooms()" class="room-form">
+
+        <mat-form-field appearance="outline" class="room-field">
+            <mat-icon matPrefix>hotel</mat-icon>
+            <mat-label>Select Hotel</mat-label>
+
+            <mat-select formControlName="hotelName">
+                @for (hotel of hotels; track hotel) {
+                <mat-option [value]="hotel">{{ hotel }}</mat-option>
+                }
+            </mat-select>
+
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="search-btn" type="submit"
+            [disabled]="!roomForm.valid || isSearching">
+            <mat-icon>search</mat-icon>
+            Search
+        </button>
+
+    </form>
+</div>
+
+
+<!-- ROOM RESULTS -->
+@if (roomList && roomList.length > 0) {
+<h2 style="text-align: center;">Rooms</h2>
+<div class="room-grid">
+    @for (room of roomList; track room.roomNumber) {
+    <div class="room-card">
+        <div class="room-content">
+            <h3>Room no. {{ room.roomNumber }}</h3>
+            <p class="detail">
+                <mat-icon class="icon">king_bed</mat-icon>
+                {{ room.roomType }}
+            </p>
+            <p class="detail">
+                <mat-icon class="icon">currency_rupee</mat-icon>
+                {{ room.price }}
+            </p>
+        </div>
+    </div>
+    }
+</div>
+}

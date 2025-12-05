@@ -1,0 +1,85 @@
+.signup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('/login.jpg') center/cover no-repeat;
+    filter: brightness(0.75);
+}
+
+.signup-card {
+    max-width: 380px;
+    margin: 3% auto;
+    padding: 25px 40px;
+    text-align: center;
+    color: #032753;
+    border-radius: 12px;
+    backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.signup-card h2 {
+    font-size: 22px;
+    margin-bottom: 1px;
+    font-weight: 700;
+}
+
+.subtitle {
+    opacity: 0.85;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 14px;
+    text-align: left;
+    opacity: 0.9;
+}
+
+input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+button {
+    padding: 14px;
+    background: #054477;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.25s;
+}
+
+button:hover {
+    background: #006fd1;
+}
+
+.login-link {
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: rgb(7, 46, 203);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
