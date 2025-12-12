@@ -2,7 +2,7 @@ services:
   - type: static
     name: hotel-booking-ui
     branch: main
-    buildCommand: npm install --legacy-peer-deps && npm run build
+    buildCommand: npm install --legacy-peer-deps && npm run build && cp routes.json dist/hotel-booking-service/routes.json
     staticPublishPath: dist/hotel-booking-service
     envVars:
       - key: NODE_ENV
