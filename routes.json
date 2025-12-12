@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {
+      "source": "/<path:_*>",
+      "destination": "/index.html"
+    }
+  ]
+}
