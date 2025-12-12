@@ -28,7 +28,7 @@ import { ChangeDetectorRef } from '@angular/core';
 
 })
 export class ListAllBookings {
-  bookingServiceUrl = environment.bookingServiceUrl;
+  bookingServiceUrl = environment.hotelServiceUrl;
   bookingListForm = new FormGroup({
     bookingId: new FormControl(''),
     bookingDate: new FormControl(''),

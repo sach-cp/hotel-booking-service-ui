@@ -15,7 +15,6 @@ import { environment } from '../../environments/environment.development';
 export class Login {
   apiGatewayUrl = environment.apiGatewayUrl;
 
-  isSubmitting = false;
   loginForm!: FormGroup;
   token: string = '';
 
@@ -34,9 +33,6 @@ export class Login {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
     }
-
-    if (this.isSubmitting) return;
-    this.isSubmitting = true;
 
     const form = this.loginForm.value;
     const loginData: LoginRequest = {
@@ -79,9 +75,6 @@ export class Login {
         }
 
         this.showMessage(errorMessage, 'error');
-      },
-      complete: () => {
-        this.isSubmitting = false;
       }
     });
   }
