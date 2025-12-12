@@ -1,24 +1,23 @@
-# Stage 1: Install dependencies
-FROM node:18-slim AS deps
+# Stage 1: build the Angular app
+FROM node:18-alpine AS builder
 WORKDIR /app
+
+# Install dependencies (include dev deps for the Angular build)
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
-# Stage 2: Development runtime
-FROM node:18-slim
-WORKDIR /app
-
-# Copy node_modules from deps
-COPY --from=deps /app/node_modules ./node_modules
-
-# Copy Angular source
+# Copy sources and build
 COPY . .
+RUN npm run build -- --configuration production
 
-# Angular dev server must listen on 0.0.0.0 for Render
-ENV HOST=0.0.0.0
-ENV PORT=10000
+# Stage 2: serve with nginx
+FROM nginx:stable-alpine
 
-EXPOSE 10000
+# Copy built files
+COPY --from=builder /app/dist/hotel-booking-service /usr/share/nginx/html
 
-# Start Angular dev mode
-CMD ["npm", "run", "start:dev"]
+# Use our nginx config that sets SPA fallback
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
