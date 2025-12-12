@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: hotel-booking-ui
+    env: docker
+    branch: main
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /health.html
