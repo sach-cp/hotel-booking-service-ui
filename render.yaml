@@ -1,11 +1,9 @@
 services:
-  - type: web
+  - type: static
     name: hotel-booking-ui
-    env: docker
     branch: main
-    plan: free
-    dockerfilePath: Dockerfile
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    staticPublishPath: dist/hotel-booking-service
     envVars:
-      - key: PORT
-        value: "10000"
-    healthCheckPath: /
+      - key: NODE_ENV
+        value: production
